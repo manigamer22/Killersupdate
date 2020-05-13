@@ -1,0 +1,20 @@
+#pragma once
+
+#include "../main.h"
+
+namespace Autowall
+{
+    struct FireBulletData
+    {
+        Vector src;
+        trace_t enter_trace;
+        Vector direction;
+        CTraceFilter filter;
+        float trace_length;
+        float trace_length_remaining;
+        float current_damage;
+        int penetrate_count;
+    };
+     bool CanHitFloatingPoint(const Vector &point, const Vector &source);
+    float GetDamage(const Vector& vecPoint, bool teamCheck, FireBulletData& fData);
+}
