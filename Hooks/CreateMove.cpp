@@ -187,7 +187,7 @@ bool hkCreateMove(void* thisptr, float flSampleInput, CUserCmd* cmd)
         uintptr_t rbp;
         rbp = reinterpret_cast<uintptr_t>(__builtin_frame_address(0));
         asm volatile("mov %%rbp, %0" : "=r" (rbp));
-        bool *sendPacket = ((*(bool**)rbp) - 0x18);
+        bool *sendPacket = ((*(bool**)rbp) - (int)24);
         CreateMove::sendPacket =  true;
         
         FakeLag(cmd);
